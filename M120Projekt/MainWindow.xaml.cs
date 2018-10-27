@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using M120Projekt.UserControls;
 
 namespace M120Projekt
 {
@@ -23,21 +22,20 @@ namespace M120Projekt
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
+        {          
             InitializeComponent();
-
-            Main.Content = new UebersichtAufgabensammlungen();
-
-            // Aufruf diverse APIDemo Methoden
-            APIDemo.DemoBCreate();
-            APIDemo.DemoACreate();
-            APIDemo.DemoARead();
-            APIDemo.DemoBRead();
-            APIDemo.DemoAUpdate();
-            APIDemo.DemoARead();
-            APIDemo.DemoBRead();
-            //APIDemo.DemoADelete();
-            APIDemo.DemoBRead();
+            DetailAnsicht window = new DetailAnsicht();
+            window.Show();
+            //// Aufruf diverse APIDemo Methoden
+            //APIDemo.DemoBCreate();
+            //APIDemo.DemoACreate();
+            //APIDemo.DemoARead();
+            //APIDemo.DemoBRead();
+            //APIDemo.DemoAUpdate();
+            //APIDemo.DemoARead();
+            //APIDemo.DemoBRead();
+            ////APIDemo.DemoADelete();
+            //APIDemo.DemoBRead();
         }
     }
 }

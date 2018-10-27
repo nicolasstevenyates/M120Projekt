@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace M120Projekt.UserControls
+namespace M120Projekt
 {
     /// <summary>
-    /// Interaktionslogik für UebersichtAufgabensammlungen.xaml
+    /// Interaktionslogik für DetailAnsicht.xaml
     /// </summary>
-    public partial class UebersichtAufgabensammlungen : UserControl
+    public partial class DetailAnsicht : Window
     {
-        public UebersichtAufgabensammlungen()
+        public DetailAnsicht()
         {
             InitializeComponent();
         }

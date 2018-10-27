@@ -61,9 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControls\UebersichtAufgabensammlungen.xaml.cs">
-      <DependentUpon>UebersichtAufgabensammlungen.xaml</DependentUpon>
+    <Compile Include="DetailAnsicht.xaml.cs">
+      <DependentUpon>DetailAnsicht.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UebersichtAufgabensammlung.xaml.cs">
+      <DependentUpon>UebersichtAufgabensammlung.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DetailAnsicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,7 +87,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\UebersichtAufgabensammlungen.xaml">
+    <Page Include="UebersichtAufgabensammlung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\delete_forever.png" />
