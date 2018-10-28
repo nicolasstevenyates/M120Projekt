@@ -26,7 +26,7 @@
             <!--Priotität Hoch CheckBox-->
             <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Grid.Column="1" Grid.Row="1" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged"/>
             <!--DELETE BUTTON-->
-            <Button Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1">
+            <Button Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1" Click="btnDelete_Click">
                 <Image Source="Images/delete_forever.png" Width="30" Margin="0"/>
             </Button>
         </Grid>
@@ -38,5 +38,6 @@
             <Button x:Name="btnCancel" Content="Abbrechen" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
             <Button x:Name="btnBack" Content="Zurück" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
         </WrapPanel>
+        <Label x:Name="lblStatus"/>
     </StackPanel>
 </Window>
