@@ -74,5 +74,18 @@ namespace M120Projekt
             SetEnabledOrDisabled(gridAufgaben, false);
             btnCancel.Visibility = Visibility.Collapsed;
         }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            gridAufgaben.RowDefinitions.Add(new RowDefinition());
+            TextBox textBox = new TextBox();
+            textBox.BorderBrush = Brushes.LightGray;
+            textBox.BorderThickness = new Thickness(1);
+            textBox.IsEnabled = false;
+            textBox.FontSize = 24;
+            gridAufgaben.Children.Add(textBox);
+            Grid.SetRow(textBox, gridAufgaben.RowDefinitions.Count - 1);
+            Grid.SetColumn(textBox, 0);
+        }
     }
 }

@@ -32,7 +32,7 @@
         </Grid>
         <WrapPanel>
             <!--NEW BUTTON-->
-            <Button Content="Neu" Height="36" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
+            <Button Content="Neu" Height="36" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnNew_Click"/>
             <Button x:Name="btnEdit" Content="Bearbeiten" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnEdit_Click"/>
             <Button x:Name="btnSave" Content="Speichern" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Visibility="Collapsed" Click="btnSave_Click"/>
             <Button x:Name="btnCancel" Content="Abbrechen" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
