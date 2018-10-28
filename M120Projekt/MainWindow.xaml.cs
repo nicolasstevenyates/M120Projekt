@@ -24,7 +24,7 @@ namespace M120Projekt
         public MainWindow()
         {          
             InitializeComponent();
-            EinzelAnsicht window = new EinzelAnsicht();
+            UebersichtAufgabensammlung window = new UebersichtAufgabensammlung();
             window.ShowDialog();
             //// Aufruf diverse APIDemo Methoden
             //APIDemo.DemoBCreate();
