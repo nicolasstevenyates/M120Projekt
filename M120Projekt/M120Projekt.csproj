@@ -61,13 +61,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DetailAnsicht.xaml.cs">
-      <DependentUpon>DetailAnsicht.xaml</DependentUpon>
+    <Compile Include="EinzelAnsicht.xaml.cs">
+      <DependentUpon>EinzelAnsicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="UebersichtAufgabensammlung.xaml.cs">
       <DependentUpon>UebersichtAufgabensammlung.xaml</DependentUpon>
     </Compile>
-    <Page Include="DetailAnsicht.xaml">
+    <Page Include="EinzelAnsicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -24,7 +24,7 @@
             <!--EDIT BUTTON-->
             <StackPanel Grid.Column="1" Grid.Row="0">
                 <Button>
-                    <Image Source="Images/edit.png" Width="50"/>
+                    Edit
                 </Button>
             </StackPanel>
             <!--DELETE BUTTON-->

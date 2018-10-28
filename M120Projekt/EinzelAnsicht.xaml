@@ -1,11 +1,11 @@
-﻿<Window x:Class="M120Projekt.DetailAnsicht"
+﻿<Window x:Class="M120Projekt.EinzelAnsicht"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
         mc:Ignorable="d"
-        Title="DetailAnsicht" Height="450" Width="800">
+        Title="EinzelAnsicht" Height="450" Width="800">
     <StackPanel>
         <Grid x:Name="gridAufgaben">
             <Grid.RowDefinitions>
@@ -39,5 +39,6 @@
             <Button x:Name="btnBack" Content="Zurück" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
         </WrapPanel>
         <Label x:Name="lblStatus"/>
+        <Label x:Name="lblWarning" Foreground="Red"/>
     </StackPanel>
 </Window>

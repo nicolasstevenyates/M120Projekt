@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,9 +18,9 @@ namespace M120Projekt
     /// <summary>
     /// Interaktionslogik für DetailAnsicht.xaml
     /// </summary>
-    public partial class DetailAnsicht : Window
+    public partial class EinzelAnsicht : Window
     {
-        public DetailAnsicht()
+        public EinzelAnsicht()
         {
             InitializeComponent();
         }
@@ -48,12 +49,32 @@ namespace M120Projekt
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            SetEnabledOrDisabled(gridAufgaben, false);
-            Button button = sender as Button;
-            button.Visibility = Visibility.Collapsed;
-            btnEdit.Visibility = Visibility.Visible;
-            btnCancel.Visibility = Visibility.Collapsed;
-            lblStatus.Content = "Gespeichert";
+            bool allValid = true;
+            foreach (UIElement child in gridAufgaben.Children)
+            {
+                if (child is TextBox)
+                {
+                    
+                    TextBox textBox = child as TextBox;
+                    if(ValidateAufgabe(textBox.Text))
+                    { }
+                    else
+                    {
+                        allValid = false;
+                        textBox.BorderBrush = Brushes.Red;
+                        lblWarning.Content = "Es dürfen nur Buchstaben, Zahlen und Leerzeichen eingegeben werden.";
+                    }                    
+                }
+            }
+            if (allValid == true)
+            {
+                SetEnabledOrDisabled(gridAufgaben, false);
+                Button button = sender as Button;
+                button.Visibility = Visibility.Collapsed;
+                btnEdit.Visibility = Visibility.Visible;
+                btnCancel.Visibility = Visibility.Collapsed;
+                lblStatus.Content = "Gespeichert";
+            }
         }
 
         private void txtBox_Changed(object sender, TextChangedEventArgs e)
@@ -80,6 +101,15 @@ namespace M120Projekt
             btnSave.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
             lblStatus.Content = "Abgebrochen";
+            lblWarning.Content = "";
+            foreach (UIElement child in gridAufgaben.Children)
+            {
+                if (child is TextBox)
+                {
+                    TextBox textBox = child as TextBox;
+                    textBox.BorderBrush = Brushes.LightGray;
+                }
+            }
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -151,6 +181,20 @@ namespace M120Projekt
                     gridAufgaben.Children.Remove(child);
                 }
                 lblStatus.Content = "Gelöscht";
+            }
+        }
+
+        private bool ValidateAufgabe(string aufgabenInhalt)
+        {
+            string pattern = @"^([A-Za-z0-9äöüÄÖÜ\s?]+)$";
+            Match match = Regex.Match(aufgabenInhalt, pattern);
+            if(match.Success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

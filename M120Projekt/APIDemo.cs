@@ -17,7 +17,6 @@ namespace M120Projekt
             // KlasseA (lange Syntax)
             Data.Aufgabe klasseA1 = new Data.Aufgabe();
             klasseA1.Inhalt = "Artikel 1";
-            klasseA1.Erstellungsdatum = DateTime.Today;
             klasseA1.HasPriorityHigh = true;
             klasseA1.Aufgabensammlung = Data.Aufgabensammlung.LesenAttributWie("Artikelgruppe 1").FirstOrDefault();
             Int64 klasseA1Id = klasseA1.Erstellen();

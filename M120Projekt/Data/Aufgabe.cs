@@ -16,11 +16,11 @@ namespace M120Projekt.Data
         public Int64 AufgabeId { get; set; }
         [Required]
         public String Inhalt { get; set; }
-        [Required]
-        public DateTime Erstellungsdatum { get; set; }
-        [Required]
+        [Required]      
         public Boolean HasPriorityHigh { get; set; }
+        [Required]
         public Int64 AufgabensammlungId { get; set; }
+        [Required]
         public Aufgabensammlung Aufgabensammlung { get; set; }
         #endregion
         #region Applikationsschicht
@@ -73,7 +73,6 @@ namespace M120Projekt.Data
             if (this.Inhalt == null || this.Inhalt == "") this.Inhalt = "leer";
             // Option mit Fehler statt Default Value
             // if (klasseA.TextAttribut == null) throw new Exception("Null ist ungültig");
-            if (this.Erstellungsdatum == null) this.Erstellungsdatum = DateTime.MinValue;
             using (var context = new Data.Context())
             {
                 context.Aufgabe.Add(this);
