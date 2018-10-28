@@ -7,39 +7,36 @@
         mc:Ignorable="d"
         Title="DetailAnsicht" Height="450" Width="800">
     <StackPanel>
-        <Border BorderBrush="Gray" BorderThickness="2">
-            <Grid>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="35"/>
-                </Grid.ColumnDefinitions>
-                <!--Columntitle-->
-                <Label Grid.Column="0" Grid.Row="0" Content="Aufgabe" BorderBrush="Gray" BorderThickness="0 0 1 1"/>
-                <Label Grid.Column="1" Grid.Row="0" Content="Priorität Hoch" BorderBrush="Gray" BorderThickness="1 0 1 1"/>
-                <Label Grid.Column="2" Grid.Row="0" BorderBrush="Gray" BorderThickness="1 0 0 1"/>
-                <!--AUFGABE TextBox-->
-                <TextBox Grid.Column="0" Grid.Row="1" Text="Aufgabe1" HorizontalContentAlignment="Left" BorderBrush="Gray" BorderThickness="0 1 1 0" FontSize="24"/>
-                <!--Priotität Hoch CheckBox-->
-                <Border BorderBrush="Gray" BorderThickness="1 1 1 0" Grid.Column="1" Grid.Row="1">
-                    <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-                
-                <!--DELETE BUTTON-->
-                <Button Grid.Column="2" Grid.Row="1" BorderBrush="Gray" BorderThickness="1 1 0 0">
-                    <Image Source="Images/delete_forever.png" Width="30" Margin="0 0 0 0"/>
-                </Button>
-            </Grid>
-        </Border>
+        <Grid x:Name="gridAufgaben">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+            <!--Columntitle-->
+            <Label Grid.Column="0" Grid.Row="0" Content="Aufgabe" BorderBrush="LightGray" BorderThickness="0 0 1 0"/>
+            <Label Grid.Column="1" Grid.Row="0" Content="Priorität Hoch" BorderBrush="LightGray"/>
+            <Label Grid.Column="2" Grid.Row="0" BorderBrush="LightGray" BorderThickness="1 0 0 0"/>
+            <!--AUFGABE TextBox-->
+            <TextBox Grid.Column="0" Grid.Row="1" Text="Aufgabe1" HorizontalContentAlignment="Left" BorderBrush="LightGray" BorderThickness="1" FontSize="24" IsEnabled="False" TextChanged="txtBox_Changed"/>
+            <!--Priotität Hoch CheckBox-->
+            <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Grid.Column="1" Grid.Row="1" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged"/>
+            <!--DELETE BUTTON-->
+            <Button Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1">
+                <Image Source="Images/delete_forever.png" Width="30" Margin="0"/>
+            </Button>
+        </Grid>
         <WrapPanel>
             <!--NEW BUTTON-->
-            <Button Content="Speichern" Height="36" HorizontalAlignment="Left" Margin="0 5 5 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
             <Button Content="Neu" Height="36" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
+            <Button x:Name="btnEdit" Content="Bearbeiten" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnEdit_Click"/>
+            <Button x:Name="btnSave" Content="Speichern" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Visibility="Collapsed" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Abbrechen" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
+            <Button x:Name="btnBack" Content="Zurück" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
         </WrapPanel>
     </StackPanel>
 </Window>
