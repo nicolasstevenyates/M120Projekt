@@ -1,11 +1,11 @@
-﻿<Window x:Class="M120Projekt.EinzelAnsicht"
+﻿<UserControl x:Class="M120Projekt.EinzelAnsicht"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
         mc:Ignorable="d"
-        Title="EinzelAnsicht" Height="450" Width="800">
+        Height="450" Width="800">
     <StackPanel>
         <Grid x:Name="gridAufgaben">
             <Grid.RowDefinitions>
@@ -36,9 +36,9 @@
             <Button x:Name="btnEdit" Content="Bearbeiten" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnEdit_Click"/>
             <Button x:Name="btnSave" Content="Speichern" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Visibility="Collapsed" Click="btnSave_Click"/>
             <Button x:Name="btnCancel" Content="Abbrechen" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
-            <Button x:Name="btnBack" Content="Zurück" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0"/>
+            <Button x:Name="btnBack" Content="Zurück" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnBack_Click"/>
         </WrapPanel>
         <Label x:Name="lblStatus"/>
         <Label x:Name="lblWarning" Foreground="Red"/>
     </StackPanel>
-</Window>
+</UserControl>

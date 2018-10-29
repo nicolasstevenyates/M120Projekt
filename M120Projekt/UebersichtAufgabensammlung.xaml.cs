@@ -18,11 +18,13 @@ namespace M120Projekt
     /// <summary>
     /// Interaktionslogik für UebersichtAufgabensammlung.xaml
     /// </summary>
-    public partial class UebersichtAufgabensammlung : Window
+    public partial class UebersichtAufgabensammlung : UserControl
     {
-        public UebersichtAufgabensammlung()
+        private MainWindow mainWindow;
+        public UebersichtAufgabensammlung(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +75,7 @@ namespace M120Projekt
                     Button button = new Button();
                     button.Content = content;
                     button.FontSize = 24;
-                    button.HorizontalAlignment = HorizontalAlignment.Stretch;
+                    button.HorizontalContentAlignment = HorizontalAlignment.Left;
                     button.Click += new RoutedEventHandler(btnAufgabensammlung_Click);
 
                     elementsToRemove.Add(textBox);
@@ -162,12 +164,7 @@ namespace M120Projekt
             // Create new Row
             gridAufgabensammlung.RowDefinitions.Add(new RowDefinition());
 
-            // Create new Button
-            Button button = new Button();
-            button.FontSize = 24;
-            button.Content = "Neue Aufgabensammlung";
-            button.Click += new RoutedEventHandler(btnAufgabensammlung_Click);
-            button.HorizontalAlignment = HorizontalAlignment.Stretch;
+            
             // Create new CheckBox
             DatePicker datePicker = new DatePicker();
             datePicker.SelectedDateChanged += new EventHandler<SelectionChangedEventArgs>(datePicker_Changed);
@@ -186,21 +183,37 @@ namespace M120Projekt
 
             if (btnEdit.IsVisible == true)
             {
+                // Create new Button
+                Button button = new Button();
+                button.FontSize = 24;
+                button.Content = "Neue Aufgabensammlung";
+                button.Click += new RoutedEventHandler(btnAufgabensammlung_Click);
+                button.HorizontalContentAlignment = HorizontalAlignment.Left;
                 datePicker.IsEnabled = false;
+                gridAufgabensammlung.Children.Add(button);
+                Grid.SetRow(button, gridAufgabensammlung.RowDefinitions.Count - 1);
+                Grid.SetColumn(button, 0);
             }
             else
             {
+                TextBox textBox = new TextBox();
+                textBox.Text = "Neue Aufgabensammlung";
+                textBox.FontSize = 24;
+                textBox.TextChanged += new TextChangedEventHandler(txtBox_Changed);
                 datePicker.IsEnabled = true;
+                gridAufgabensammlung.Children.Add(textBox);
+                Grid.SetRow(textBox, gridAufgabensammlung.RowDefinitions.Count - 1);
+                Grid.SetColumn(textBox, 0);
             }
 
             // Add Objects to grid
-            gridAufgabensammlung.Children.Add(button);
+            
             gridAufgabensammlung.Children.Add(datePicker);
             gridAufgabensammlung.Children.Add(btnDelete);
-            Grid.SetRow(button, gridAufgabensammlung.RowDefinitions.Count - 1);
+            
             Grid.SetRow(datePicker, gridAufgabensammlung.RowDefinitions.Count - 1);
             Grid.SetRow(btnDelete, gridAufgabensammlung.RowDefinitions.Count - 1);
-            Grid.SetColumn(button, 0);
+            
             Grid.SetColumn(datePicker, 1);
             Grid.SetColumn(btnDelete, 2);
             lblStatus.Content = "Neu";
@@ -243,17 +256,7 @@ namespace M120Projekt
 
         private void btnAufgabensammlung_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Link zu Aufgaben");
-        }
-
-        private void ConvertButtonToTextBox(UIElement control)
-        {
-            
-        }
-
-        private void ConvertTextBoxToButton(UIElement control)
-        {
-            
+            mainWindow.Main.Content = new EinzelAnsicht(mainWindow);
         }
     }
 }

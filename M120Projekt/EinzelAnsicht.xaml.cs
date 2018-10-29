@@ -18,11 +18,14 @@ namespace M120Projekt
     /// <summary>
     /// Interaktionslogik für DetailAnsicht.xaml
     /// </summary>
-    public partial class EinzelAnsicht : Window
+    public partial class EinzelAnsicht : UserControl
     {
-        public EinzelAnsicht()
+        private MainWindow mainWindow;
+        public EinzelAnsicht(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+
         }
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
@@ -196,6 +199,11 @@ namespace M120Projekt
             {
                 return false;
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Main.Content = new UebersichtAufgabensammlung(mainWindow);
         }
     }
 }
