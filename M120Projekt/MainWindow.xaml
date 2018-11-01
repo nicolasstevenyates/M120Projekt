@@ -9,7 +9,7 @@
         SizeToContent="WidthAndHeight"
         Title="{x:Static resx:strings.appName}" Height="450" Width="800">
     <Border Padding="5">
-        <ScrollViewer x:Name="Main" MinHeight="400" Height="auto">
+        <ScrollViewer x:Name="Main">
             
         </ScrollViewer>
     </Border>
