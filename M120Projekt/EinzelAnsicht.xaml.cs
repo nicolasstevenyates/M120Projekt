@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using M120Projekt.Ressources;
 
 namespace M120Projekt
 {
@@ -35,7 +36,7 @@ namespace M120Projekt
             btnSave.Visibility = Visibility.Visible;
             btnCancel.Visibility = Visibility.Visible;
             btnSave.IsEnabled = false;
-            lblStatus.Content = "In Bearbeitung";
+            lblStatus.Content = strings.btnEdit;
         }
 
 
@@ -65,7 +66,7 @@ namespace M120Projekt
                     {
                         allValid = false;
                         textBox.BorderBrush = Brushes.Red;
-                        lblWarning.Content = "Es dürfen nur Buchstaben, Zahlen und Leerzeichen eingegeben werden.";
+                        lblWarning.Content = strings.msgError;
                     }                    
                 }
             }
@@ -76,7 +77,7 @@ namespace M120Projekt
                 button.Visibility = Visibility.Collapsed;
                 btnEdit.Visibility = Visibility.Visible;
                 btnCancel.Visibility = Visibility.Collapsed;
-                lblStatus.Content = "Gespeichert";
+                lblStatus.Content = strings.stsSaved;
             }
         }
 
@@ -85,7 +86,7 @@ namespace M120Projekt
             if(this.IsLoaded)
             {
                 btnSave.IsEnabled = true;
-                lblStatus.Content = "Verändert";
+                lblStatus.Content = strings.stsEdit;
             }          
         }
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
@@ -93,7 +94,7 @@ namespace M120Projekt
             if (this.IsLoaded)
             {
                 btnSave.IsEnabled = true;
-                lblStatus.Content = "Verändert";
+                lblStatus.Content = strings.stsEdit;
             }           
         }
 
@@ -103,7 +104,7 @@ namespace M120Projekt
             btnCancel.Visibility = Visibility.Collapsed;
             btnSave.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
-            lblStatus.Content = "Abgebrochen";
+            lblStatus.Content = strings.stsCanceled;
             lblWarning.Content = "";
             foreach (UIElement child in gridAufgaben.Children)
             {
@@ -125,7 +126,7 @@ namespace M120Projekt
             textBox.BorderBrush = Brushes.LightGray;
             textBox.BorderThickness = new Thickness(1);
             textBox.FontSize = 24;
-            textBox.Text = "Neue Aufgabe";
+            textBox.Text = strings.btnContentNewItem;
             textBox.TextChanged += new TextChangedEventHandler(txtBox_Changed);
             // Create new CheckBox
             CheckBox checkBox = new CheckBox();
@@ -163,12 +164,12 @@ namespace M120Projekt
             Grid.SetColumn(textBox, 0);
             Grid.SetColumn(checkBox, 1);
             Grid.SetColumn(button, 2);
-            lblStatus.Content = "Neu";
+            lblStatus.Content = strings.stsNew;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {         
-            if (MessageBox.Show("Sind sie sicher, dass Sie diese Aufgabe löschen möchten?", "Aufgabe wird gelöscht", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show(strings.msgSureToProceedContent, strings.msgSureToProceedTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 Button button = sender as Button;
                 List<UIElement> elementsToRemove = new List<UIElement>();
@@ -183,7 +184,7 @@ namespace M120Projekt
                 {
                     gridAufgaben.Children.Remove(child);
                 }
-                lblStatus.Content = "Gelöscht";
+                lblStatus.Content = strings.stsDeleted;
             }
         }
 

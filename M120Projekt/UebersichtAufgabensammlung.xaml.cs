@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using M120Projekt.Ressources;
 
 namespace M120Projekt
 {
@@ -34,7 +35,7 @@ namespace M120Projekt
             btnSave.Visibility = Visibility.Visible;
             btnCancel.Visibility = Visibility.Visible;
             btnSave.IsEnabled = false;
-            lblStatus.Content = "In Bearbeitung";
+            lblStatus.Content = strings.stsEdit;
         }
 
 
@@ -109,7 +110,7 @@ namespace M120Projekt
                     {
                         allValid = false;
                         textBox.BorderBrush = Brushes.Red;
-                        lblWarning.Content = "Es dürfen nur Buchstaben, Zahlen und Leerzeichen eingegeben werden.";
+                        lblWarning.Content = strings.msgError;
                     }
                 }
             }
@@ -120,7 +121,7 @@ namespace M120Projekt
                 button.Visibility = Visibility.Collapsed;
                 btnEdit.Visibility = Visibility.Visible;
                 btnCancel.Visibility = Visibility.Collapsed;
-                lblStatus.Content = "Gespeichert";
+                lblStatus.Content = strings.stsSaved;
             }
         }
 
@@ -129,7 +130,7 @@ namespace M120Projekt
             if (this.IsLoaded)
             {
                 btnSave.IsEnabled = true;
-                lblStatus.Content = "Verändert";
+                lblStatus.Content = strings.stsChanged;
             }
         }
         private void datePicker_Changed(object sender, RoutedEventArgs e)
@@ -137,7 +138,7 @@ namespace M120Projekt
             if (this.IsLoaded)
             {
                 btnSave.IsEnabled = true;
-                lblStatus.Content = "Verändert";
+                lblStatus.Content = strings.stsChanged;
             }
         }
 
@@ -147,7 +148,7 @@ namespace M120Projekt
             btnCancel.Visibility = Visibility.Collapsed;
             btnSave.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
-            lblStatus.Content = "Abgebrochen";
+            lblStatus.Content = strings.stsCanceled;
             lblWarning.Content = "";
             foreach (UIElement child in gridAufgabensammlung.Children)
             {
@@ -164,7 +165,6 @@ namespace M120Projekt
             // Create new Row
             gridAufgabensammlung.RowDefinitions.Add(new RowDefinition());
 
-            
             // Create new CheckBox
             DatePicker datePicker = new DatePicker();
             datePicker.SelectedDateChanged += new EventHandler<SelectionChangedEventArgs>(datePicker_Changed);
@@ -186,7 +186,7 @@ namespace M120Projekt
                 // Create new Button
                 Button button = new Button();
                 button.FontSize = 24;
-                button.Content = "Neue Aufgabensammlung";
+                button.Content = strings.btnContentNewCollection;
                 button.Click += new RoutedEventHandler(btnAufgabensammlung_Click);
                 button.HorizontalContentAlignment = HorizontalAlignment.Left;
                 datePicker.IsEnabled = false;
@@ -197,7 +197,7 @@ namespace M120Projekt
             else
             {
                 TextBox textBox = new TextBox();
-                textBox.Text = "Neue Aufgabensammlung";
+                textBox.Text = strings.btnContentNewCollection;
                 textBox.FontSize = 24;
                 textBox.TextChanged += new TextChangedEventHandler(txtBox_Changed);
                 datePicker.IsEnabled = true;
@@ -216,12 +216,12 @@ namespace M120Projekt
             
             Grid.SetColumn(datePicker, 1);
             Grid.SetColumn(btnDelete, 2);
-            lblStatus.Content = "Neu";
+            lblStatus.Content = strings.stsNew;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Sind sie sicher, dass Sie diese Aufgabensammlung löschen möchten?", "Aufgabe wird gelöscht", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show(strings.msgSureToProceedContent, strings.msgSureToProceedTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 Button button = sender as Button;
                 List<UIElement> elementsToRemove = new List<UIElement>();
@@ -236,7 +236,7 @@ namespace M120Projekt
                 {
                     gridAufgabensammlung.Children.Remove(child);
                 }
-                lblStatus.Content = "Gelöscht";
+                lblStatus.Content = strings.stsDeleted;
             }
         }
 

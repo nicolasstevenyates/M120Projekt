@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
+        xmlns:resx="clr-namespace:M120Projekt.Ressources"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{x:Static resx:strings.appName}" Height="450" Width="800">
     <Border Padding="5">
-        <ScrollViewer x:Name="Main">
+        <ScrollViewer x:Name="Main" MinHeight="400" Height="auto">
             
         </ScrollViewer>
     </Border>

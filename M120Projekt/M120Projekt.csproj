@@ -64,6 +64,16 @@
     <Compile Include="EinzelAnsicht.xaml.cs">
       <DependentUpon>EinzelAnsicht.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ressources\strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ressources\strings.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="UebersichtAufgabensammlung.xaml.cs">
       <DependentUpon>UebersichtAufgabensammlung.xaml</DependentUpon>
     </Compile>
@@ -110,6 +120,14 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\strings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Data\Klassendiagramm.cd" />
     <None Include="packages.config" />

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
+        xmlns:resx="clr-namespace:M120Projekt.Ressources"
         mc:Ignorable="d"
         Height="450" Width="800">
     <StackPanel>
@@ -18,24 +19,24 @@
                 <ColumnDefinition Width="35"/>
             </Grid.ColumnDefinitions>
             <!--Columntitle-->
-            <Label Grid.Column="0" Grid.Row="0" Content="Aufgabensammlung" BorderBrush="LightGray" BorderThickness="0 0 1 0"/>
-            <Label Grid.Column="1" Grid.Row="0" Content="Erinnerungsdatum" BorderBrush="LightGray"/>
+            <Label Grid.Column="0" Grid.Row="0" Content="{x:Static resx:strings.clnCollection}" BorderBrush="LightGray" BorderThickness="0 0 1 0"/>
+            <Label Grid.Column="1" Grid.Row="0" Content="{x:Static resx:strings.clnDate}" BorderBrush="LightGray"/>
             <Label Grid.Column="2" Grid.Row="0" BorderBrush="LightGray" BorderThickness="1 0 0 0"/>
-            <!--AUFGABENSAMMLUNG BUTTON-->
+            <!--AUFGABENSAMMLUNG BUTTON--><!--
             <Button Grid.Column="0" Grid.Row="1" Content="Aufgabensammlung1" HorizontalContentAlignment="Left" FontSize="24" Click="btnAufgabensammlung_Click"/>
-            <!--Erinnerungsdatum Datepicker-->
+            --><!--Erinnerungsdatum Datepicker--><!--
             <DatePicker  HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False" Grid.Column="1" Grid.Row="1" Margin="6 0 0 0" SelectedDateChanged="datePicker_Changed"/>
-            <!--DELETE BUTTON-->
+            --><!--DELETE BUTTON--><!--
             <Button Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1" Click="btnDelete_Click">
                 <Image Source="Images/delete_forever.png" Width="30" Margin="0"/>
-            </Button>
+            </Button>-->
         </Grid>
         <WrapPanel>
             <!--NEW BUTTON-->
-            <Button Content="Neu" Height="36" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnNew_Click"/>
-            <Button x:Name="btnEdit" Content="Bearbeiten" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnEdit_Click"/>
-            <Button x:Name="btnSave" Content="Speichern" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Visibility="Collapsed" Click="btnSave_Click"/>
-            <Button x:Name="btnCancel" Content="Abbrechen" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
+            <Button x:Name ="btnNew" Content="{x:Static resx:strings.btnNew}" Height="36" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnNew_Click"/>
+            <Button x:Name="btnEdit" Content="{x:Static resx:strings.btnEdit}" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnEdit_Click"/>
+            <Button x:Name="btnSave" Content="{x:Static resx:strings.btnSave}" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Visibility="Collapsed" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="{x:Static resx:strings.btnCancel}" Height="36" HorizontalAlignment="Left" Margin="5 5 0 0" FontSize="20" HorizontalContentAlignment="Left" Padding="10 0" Click="btnCancel_Click" Visibility="Collapsed"/>
         </WrapPanel>
         <Label x:Name="lblStatus"/>
         <Label x:Name="lblWarning" Foreground="Red"/>
